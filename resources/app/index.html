@@ -1,0 +1,127 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="styles.css">
+<script>function download(url, filename) {
+    fetch(url)
+    .then(response => response.blob())
+    .then(blob => {
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      link.click();
+    })
+    .catch(console.error);
+  }</script>
+</head>
+
+
+<body>
+    <header>
+        <div class="logo"><i class="fa-solid fa-cloud"></i></div>
+        <div class="menu">File <div class="dropdown">
+                <div onclick="openFile()" class="selection">Open <span>Ctrl+O</span></div>
+                <div class="selection">Save <span>Ctrl+S</span></div>
+                <div class="selection">Save as... <span>Ctrl+Shift+S</span></div>
+                <hr>
+                <div class="selection">Sync to Cloud</div>
+                <div class="selection">Share
+                    <span><i class="fa-solid fa-angle-right"></i></span>
+                    <div class="xtr">
+                        <div class="selection">Share on Cloud</div>
+                        <div class="selection">Share with Google Drive</div>
+                        <div class="selection">Share with Email</div>
+                        <div class="selection">Share with Discord</div>
+                    </div>
+                </div>
+                <hr>
+                <div class="selection">Configuration</div>
+                <div id="restart-menu-btn" class="selection">Restart <span>Ctrl+R</span></div>
+            </div>
+        </div>
+        <div class="menu">Edit <div class="dropdown">
+                <div class="selection">Undo <span>Ctrl+Z</span></div>
+                <div class="selection">Redo <span>Ctrl+Y</span></div>
+                <hr>
+                <div class="selection">Copy <span>Ctrl+C</span></div>
+                <div class="selection">Cut <span>Ctrl+X</span></div>
+                <div class="selection">Paste <span>Ctrl+V</span></div>
+                <hr>
+                <div class="selection">Find <span>Ctrl+F</span></div>
+            </div>
+        </div>
+        <div class="menu">Cloud <div class="dropdown">
+                <div class="selection">Sync to Cloud</div>
+                <div class="selection">View Cloud Log</div>
+                <hr>
+                <div class="selection">Share
+                    <span><i class="fa-solid fa-angle-right"></i></span>
+                    <div class="xtr">
+                        <div class="selection">Share on Cloud</div>
+                        <div class="selection">Share with Google Drive</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu">Help <div class="dropdown">
+                <div class="selection">Lookup Lessons</div>
+                <div class="selection">About Lessons Lesson</div>
+                <hr>
+                <div class="selection" onclick="license();">Lisence Key</div>
+                <hr>
+                <div class="selection">Shorcuts<span>Ctrl+?</span></div>
+            </div>
+        </div>
+        <div class="rightmenubar">
+            <div id="ad" class="menu small-menu"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
+            <div id="restart-btn" class="menu small-menu"><i class="fa-solid fa-arrows-rotate"></i></div>
+            <div id="min-btn" class="menu actionMenuBarBtn"><i class="fa-solid fa-window-minimize"></i></div>
+            <div id="max-btn" class="menu actionMenuBarBtn"><i class="fa-solid fa-window-restore"></i></div>
+            <div id="close-btn" class="menu actionMenuBarBtn actionClose"><i class="fa-solid fa-x"></i></div>
+        </div>
+    </header>
+    <div class="main-wrapper">
+        <div class="main-body">
+            <div class="uni-box">
+                <input id="search-in" type="text" placeholder="Search for Roblox User..." class="search-inp">
+            </div>
+            <div class="uni-box">
+                <h2>Avatar Images</h2>
+                <div class="half-flex">
+                    <div style="width:300px;" class="half-flex-1">
+                        <h3>Full Avatar</h3>
+                        <img id="fullAv" class="resize-crop" src="https://tr.rbxcdn.com/dfc071938e90bf79f71cff862722fef6/352/352/Avatar/Png">
+                    </div>
+                    <div class="half-flex-2">
+                        <h3>Download Avatar Thumbnails</h3>
+                        <div class="avatar-gallery" style="justify-content: left;">
+                            <div class="avatar-item-gallery"><img id="av-headshot" src="https://tr.rbxcdn.com/e2f2afe5b4e0581023f4f2c9650d2183/180/180/AvatarHeadshot/Png"> <span>Headshot<a id="dl-headshot"><i class="fa-solid fa-download"></i> Download</a></span></div>
+                            <div class="avatar-item-gallery"><img id="av-bust" src="https://tr.rbxcdn.com/11460d8a3005bcebe4940a1b644f80a3/180/180/AvatarBust/Png"> <span>Bust <a target="_blank" id="dl-bust"><i class="fa-solid fa-download"></i> Download</a></span></div>
+                            <div class="avatar-item-gallery"><img id="full-av-2" src="https://tr.rbxcdn.com/dfc071938e90bf79f71cff862722fef6/352/352/Avatar/Png"> <span>Full Body <a target="_blank" id="dl-fullbody"><i class="fa-solid fa-download"></i> Download</a></span></div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <h2>Friends (<span id="friends-count">0</span>)</h2>
+                <div id="friends-gallery" class="avatar-gallery">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function openFile() {
+        var input = document.createElement('input');
+        input.type = 'file';
+        input.click();
+    }
+
+</script>
+<script src="global.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
